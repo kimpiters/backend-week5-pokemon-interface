@@ -8,7 +8,7 @@ public class GrassPokemon extends Pokemon {
     String food;
     String sound;
     private static final String type = "grass";
-    List<String> attacks = Arrays.asList("Leafstorm", "Solarbeam", "Leechseed", "Leaveblade");
+    List<String> attacks = Arrays.asList("leafStorm", "solarBeam", "leechSeed", "leaveBlade");
 
     public GrassPokemon(String name, int level, int hp, String food, String sound) {
         super(name, level, hp, food, sound, type);
@@ -23,7 +23,7 @@ public class GrassPokemon extends Pokemon {
     // Methods
 
     public void leafStorm(Pokemon name, Pokemon enemy) {
-        System.out.println(name + " attacks " + enemy + " with Leafstorm");
+        System.out.println(name.getName() + " attacks " + enemy.getName() + " with leafstorm");
         String enemyType = enemy.getType();
         int damage = 0;
         switch (enemyType) {
@@ -40,13 +40,15 @@ public class GrassPokemon extends Pokemon {
                 damage = 25;
             }
         }
-        System.out.println(enemy + " loses " + damage + " hp");
+        System.out.println(enemy.getName() + " loses " + damage + " hp");
         enemy.setHp(enemy.getHp() - damage);
-        System.out.println(enemy + " has " + enemy.getHp() + " hp left");
+        if (enemy.getHp() > 0) {
+            System.out.println(enemy.getName() + " has " + enemy.getHp() + " hp left");
+        }
     }
 
     public void solarBeam(Pokemon name, Pokemon enemy) {
-        System.out.println(name + " attacks " + enemy + " with Solarbeam");
+        System.out.println(name.getName() + " attacks " + enemy.getName() + " with solarbeam");
         String enemyType = enemy.getType();
         int damage = 0;
         switch (enemyType) {
@@ -63,13 +65,15 @@ public class GrassPokemon extends Pokemon {
                 damage = 10;
             }
         }
-        System.out.println(enemy + " loses " + damage + " hp");
+        System.out.println(enemy.getName() + " loses " + damage + " hp");
         enemy.setHp(enemy.getHp() - damage);
-        System.out.println(enemy + " has " + enemy.getHp() + " hp left");
+        if (enemy.getHp() > 0) {
+            System.out.println(enemy.getName() + " has " + enemy.getHp() + " hp left");
+        }
     }
 
     public void leechSeed(Pokemon name, Pokemon enemy) {
-        System.out.println(name + " attacks " + enemy + " with Leechseed");
+        System.out.println(name.getName() + " attacks " + enemy.getName() + " with leechseed");
         String enemyType = enemy.getType();
         int damage = 0;
         switch (enemyType) {
@@ -86,14 +90,18 @@ public class GrassPokemon extends Pokemon {
                 damage = 20;
             }
         }
-        System.out.println(enemy + " loses " + damage + " hp\n" + name + " gains " + damage + " hp");
+        System.out.println(enemy.getName() + " loses " + damage + " hp\n" + name.getName() + " gains " + damage + " hp");
         enemy.setHp(enemy.getHp() - damage);
         name.setHp(name.getHp() + damage);
-        System.out.println(enemy + " has " + enemy.getHp() + " hp left\n" + name + " has " + name.getHp() + " hp left");
+
+        if (enemy.getHp() > 0) {
+            System.out.println(enemy.getName() + " has " + enemy.getHp() + " hp left");
+        }
+        System.out.println(name.getName() + " has " + name.getHp() + " hp left");
     }
 
     public void leaveBlade(Pokemon name, Pokemon enemy) {
-        System.out.println(name + " attacks " + enemy + " with Leaveblade");
+        System.out.println(name.getName() + " attacks " + enemy.getName() + " with leaveblade");
         String enemyType = enemy.getType();
         int damage = 0;
         switch (enemyType) {
@@ -110,8 +118,10 @@ public class GrassPokemon extends Pokemon {
                 damage = 15;
             }
         }
-        System.out.println(enemy + " loses " + damage + " hp");
+        System.out.println(enemy.getName() + " loses " + damage + " hp");
         enemy.setHp(enemy.getHp() - damage);
-        System.out.println(enemy + " has " + enemy.getHp() + " hp left");
+        if (enemy.getHp() > 0) {
+            System.out.println(enemy.getName() + " has " + enemy.getHp() + " hp left");
+        }
     }
 }
